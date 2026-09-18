@@ -2,7 +2,7 @@ export const site = {
   name: "garden",
   author: "cosine",
   description: "记录用的网站",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://garden.cos02.top",
   email: "",
   instagram: "",
   socials: [

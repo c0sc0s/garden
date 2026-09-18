@@ -116,3 +116,15 @@ About Me 标题与站点字标统一使用本地 Caveat 手写字体，以静态
 ```
 
 可以添加多张图片，也可以省略 `text` 只发图片。图片完整显示，移动端自动调整为单列。
+
+## Vercel 运维与统计
+
+正式域名为 https://garden.cos02.top。根布局接入 `@vercel/analytics` 与 `@vercel/speed-insights`，无需在页面逐个添加。Vercel 项目中分别开启 [Web Analytics](https://vercel.com/c0sc0s-projects/garden/analytics) 和 [Speed Insights](https://vercel.com/c0sc0s-projects/garden/speed-insights)，部署后访问网站，数据随真实访问累积。
+
+`NEXT_PUBLIC_SITE_URL` 默认正式域名。如果 Vercel Production 环境中已有该变量，确保不是 localhost；修改后重新部署。此地址用于 canonical、robots 与 sitemap。
+
+- `npm run ops:check`：检查正式网站页面、SEO 地址和两个统计脚本，失败时非零退出。
+- `npm run ops:check -- https://预览域名.vercel.app`：检查指定部署，SEO 地址仍指向正式域名。
+- `.agents/skills/garden-ops/SKILL.md`：仓库内运维 Skill，可用 `$garden-ops` 请求检查线上状态或分析性能。
+
+检查命令的耗时是本机单次请求时间，不是网站速度评分。Speed Insights 使用真实访客数据；Lighthouse/PageSpeed Insights 用于实验室测试。暂无访客数据时先验证脚本与面板开关，不据此判断性能好坏。排查部署看 Vercel Deployments 与 Logs；客户端错误另查浏览器控制台。本次接入没有创建定时巡检或故障通知服务。
