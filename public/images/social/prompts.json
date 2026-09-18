@@ -1,0 +1,17 @@
+{
+  "generator": "Built-in image_gen",
+  "prompts": [
+    {
+      "name": "github",
+      "prompt": "Use case: logo-brand. A clean hand-drawn stick-figure-style simple line doodle of one social media logo, for a personal blog. IMPORTANT BALANCE: hand-drawn but tidy. Use a small number of confident single black pen strokes, gently uneven organic curves, modest charming asymmetry. Smooth clean ink, rounded line ends, medium stroke weight. NO scratchy texture, NO hatching, NO rough pencil, NO repeated outlines, NO sketch construction lines, NO smudges, NO splatters, NO distress, NO scribbled fills. Not geometrically perfect vector artwork either. Childlike simplicity with tasteful control, like a neat little drawing in the margin of a notebook. Isolated on a genuinely transparent background, black lines only. Square image, centered, complete uncropped icon occupying 72 percent of canvas, generous margins. No words or labels, no extra decorations. Subject: GitHub Octocat as a simple neat line drawing: wide cat head with two ears, small body below and one curling tail. A few plain black lines, small simple facial features, maintain recognizable Octocat character. Do not add a surrounding circle."
+    },
+    {
+      "name": "bilibili",
+      "prompt": "Use case: logo-brand. A clean hand-drawn stick-figure-style simple line doodle of one social media logo, for a personal blog. IMPORTANT BALANCE: hand-drawn but tidy. Use a small number of confident single black pen strokes, gently uneven organic curves, modest charming asymmetry. Smooth clean ink, rounded line ends, medium stroke weight. NO scratchy texture, NO hatching, NO rough pencil, NO repeated outlines, NO sketch construction lines, NO smudges, NO splatters, NO distress, NO scribbled fills. Not geometrically perfect vector artwork either. Childlike simplicity with tasteful control, like a neat little drawing in the margin of a notebook. Isolated on a genuinely transparent background, black lines only. Square image, centered, complete uncropped icon occupying 72 percent of canvas, generous margins. No words or labels, no extra decorations. Subject: Bilibili television mascot: slightly wonky rounded rectangular television frame drawn once, two simple diagonal antennas, two short black slanted eye strokes and two tiny feet. Minimal clean cute icon, no mouth needed."
+    },
+    {
+      "name": "twitter",
+      "prompt": "Use case: logo-brand. A clean hand-drawn stick-figure-style simple line doodle of one social media logo, for a personal blog. IMPORTANT BALANCE: hand-drawn but tidy. Use a small number of confident single black pen strokes, gently uneven organic curves, modest charming asymmetry. Smooth clean ink, rounded line ends, medium stroke weight. NO scratchy texture, NO hatching, NO rough pencil, NO repeated outlines, NO sketch construction lines, NO smudges, NO splatters, NO distress, NO scribbled fills. Not geometrically perfect vector artwork either. Childlike simplicity with tasteful control, like a neat little drawing in the margin of a notebook. Isolated on a genuinely transparent background, black lines only. Square image, centered, complete uncropped icon occupying 72 percent of canvas, generous margins. No words or labels, no extra decorations. Subject: Twitter classic right-facing bird (not X), simplified into one clean gently hand-drawn outline, with recognizable short beak, raised wing with three feather tips, round belly and little tail. Transparent inside, no additional interior strokes. Clean simple line drawing."
+    }
+  ]
+}
