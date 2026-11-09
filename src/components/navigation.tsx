@@ -7,6 +7,7 @@ const links = [
   ["/", "ABOUT ME"],
   ["/blog", "BLOG"],
   ["/thoughts", "THOUGHTS"],
+  ["/games", "GAMES"],
 ] as const;
 
 export function Navigation() {
