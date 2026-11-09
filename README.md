@@ -1,6 +1,6 @@
 # garden
 
-白底、手写标题与大留白的个人博客。参考给定网站的 About 页面布局实现；首页为 About Me，导航只保留 About Me 和 Blog，旧 `/about` 地址永久跳转至 `/`，Blog 延续相同视觉。参考截图没有提供其他页面，因此文章列表和详情为配套设计。
+白底、手写标题与大留白的个人博客。首页为 About Me，导航包含 Blog、Thoughts 和 Games，旧 `/about` 地址永久跳转至 `/`。
 
 ## 技术栈与架构
 
@@ -11,6 +11,7 @@
 
 ```text
 content/posts/          Markdown 文章与 frontmatter
+content/games/          游戏通关手记，每个游戏一篇 Markdown 文章
 public/images/          照片、文章配图、手绘标题
 public/fonts/           自托管 Caveat 字体及许可证
 src/app/                首页、About、Blog、文章详情、404、SEO
@@ -18,6 +19,7 @@ src/components/         共享导航、页头、About 布局
 src/lib/site.ts         个人资料与网站配置
 src/lib/posts.ts        文章读取、校验、草稿过滤与排序
 scripts/new-post.mjs    文章模板生成器
+scripts/new-game.mjs    游戏手记模板生成器
 ```
 
 ## 本地运行
@@ -30,6 +32,8 @@ npm run dev
 ```
 
 打开 http://localhost:3000 。检查：`npm run lint`、`npm run typecheck`、`npm run build`。
+
+游戏内容读取、草稿隔离、图片取色和剧透折叠可用 `npm test` 检查。
 
 ## 添加文章
 
@@ -62,6 +66,48 @@ draft: true
 5. 文章默认按日期倒序。发布后尽量不改文件名，避免旧链接失效。
 
 也可以直接在 GitHub 网页创建 Markdown 文件并提交。没有在线后台和上传接口；所有持久内容以 Git 中的文件为准。
+
+## 游戏通关手记
+
+`/games` 是独立的游戏文章列表。每个游戏一篇手记，点击标题或整行进入文章。正文使用 Markdown，自由组织段落、标题、引用、列表和图片；不限制图片数量，也不要求图片与文字一一对应。
+
+```bash
+npm run game -- my-game "游戏名称" "我的通关手记"
+```
+
+编辑生成的 `content/games/my-game.md`：
+
+```markdown
+---
+title: "我的通关手记"
+game: "游戏名称"
+date: "2026-11-09"
+description: "列表中显示的一句话摘要，可省略"
+cover: "/images/games/my-game.webp"
+coverAlt: "封面画面的描述"
+draft: true
+---
+
+从这里开始写作。可以连续写多段，也可以随时配图。
+
+![喜欢的画面](/images/games/my-first-picture.webp)
+
+继续写自己的想法。
+```
+
+- `title`、`game`、`date` 必填，日期需使用引号；`description`、`cover`、`coverAlt` 均可省略。封面缺省时展示纯文字列表和素色阅读页。
+- `cover` 指向 `public/images/` 内的本地图片。它用于列表缩略图与阅读页背景，不会自动插入正文。背景在服务端提取画面主色并生成小尺寸 WebP，再以模糊和渐变自然淡出，无需手动配色。
+- 正文图片可以是本地路径或 HTTPS 图片链接，不必与封面相同，也不限于游戏截图。Markdown 中不执行原始 HTML 或 JSX。
+- 可选填写 `platform: "PC"`、`playtime: "42 小时"`。填写后显示在文章标题下，不填则不占位置。
+- `draft: true` 的手记只在开发环境可见；生产列表、详情页和 sitemap 都不公开草稿。仓库中的三篇示例均为草稿，配图来源标在文末，发布自己的内容时替换后再设为 `false`。
+
+需要折叠剧透时，在正文中使用：
+
+```markdown
+:::spoiler[关于结局 · 含剧透]
+这里可以继续使用普通 Markdown，包括段落和图片。
+:::
+```
 
 ## 个性化
 
